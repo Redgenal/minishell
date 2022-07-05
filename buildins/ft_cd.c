@@ -1,9 +1,10 @@
 #include "../minishell.h"
 
-ft_cd(char *str)
+int	ft_cd(char *str)
 {
-    if (chdir(str))
-    {
-        
-    }
+	if (chdir(str))
+	{
+		perror("Minishell error");
+	}
+	return (0);
 }

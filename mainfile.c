@@ -14,5 +14,9 @@
 
 int main(int argc, char **argv, char **envp)
 {
-    
+    if(argc == 2)
+        printf("%s" ,argv[0]);
+    //ft_export(envp, NULL);
+    ft_env(envp);
+    return (0);
 }

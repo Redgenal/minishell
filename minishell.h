@@ -13,6 +13,10 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include <libft/libft.h>
+# include "libft/libft.h"
+# include <stdio.h>
+
+int ft_env(char **env);
+int ft_export(char **env, char *str);
 
 #endif
