@@ -12,12 +12,29 @@
 
 #include "../minishell.h"
 
-int	ft_pwd()
+int	ft_ret_pwd_code(int value, char *str)
+{
+	if (str && (value == 0))
+		ft_putstr_fd(str, 1);
+	else if (str && (value == 1))
+	{
+		ft_putstr_fd("minishell: pwd: ", 2);
+		ft_putstr_fd(str, 2);
+		ft_putstr_fd(": No such file or directory\n", 2);
+	}
+	else if ((value == 1) && !str)
+		perror("minishell: cd: ");
+	return (value);
+}
+
+int	ft_pwd(void)
 {
 	char	*my_path;
 
 	my_path = getcwd(NULL, 1000);
-	printf("\n%s\n\n", my_path);
+	if (!my_path)
+		return (ft_ret_pwd_code(1, NULL));
+	printf("%s\n", my_path);
 	free(my_path);
 	return (0);
 }
